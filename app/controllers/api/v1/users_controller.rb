@@ -2,7 +2,7 @@ module Api
   module V1
     class UsersController < ApplicationController
       def index
-        render json: User.all
+        render json: User.all , include: ['donations_received', 'donations_given']
       end
 
       def show

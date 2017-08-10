@@ -2,7 +2,7 @@ module Api
   module V1
     class TeamsController < ApplicationController
       def index
-        render json: Team.all
+        render json: Team.all, include: ['dancers']
       end
 
       def show
