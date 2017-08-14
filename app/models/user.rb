@@ -8,4 +8,5 @@ class User < ApplicationRecord
     d_amounts = donations_received.map{|d| d.amount}
     d_amounts.inject(0){|sum,x| sum + x }
   end
+
 end
