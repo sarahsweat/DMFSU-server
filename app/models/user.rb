@@ -9,4 +9,34 @@ class User < ApplicationRecord
     d_amounts.inject(0){|sum,x| sum + x }
   end
 
+  def self.three
+    User.joins(:donations_received).group(:dancer_id).sum("amount").values.select{|a| a>50}.length
+  end
+
+  def self.seven_five
+    User.joins(:donations_received).group(:dancer_id).sum("amount").values.select{|a| a>750}.length
+  end
+
+  def self.thousand
+    User.joins(:donations_received).group(:dancer_id).sum("amount").values.select{|a| a>1000}.length
+  end
+
+  def self.fifteen
+    User.joins(:donations_received).group(:dancer_id).sum("amount").values.select{|a| a>1500}.length
+  end
+
+  def self.two
+    User.joins(:donations_received).group(:dancer_id).sum("amount").values.select{|a| a>2000}.length
+  end
+
+  def self.two_two
+    User.joins(:donations_received).group(:dancer_id).sum("amount").values.select{|a| a>2200}.length
+  end
+
+  def self.five
+    User.joins(:donations_received).group(:dancer_id).sum("amount").values.select{|a| a>500}.length
+  end
+
+
+
 end

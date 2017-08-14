@@ -5,7 +5,9 @@ Rails.application.routes.draw do
       resources :donations
       resources :teams
       resources :users
+
+      get '/graph', to: 'users#graph'
     end
   end
-  
+
 end

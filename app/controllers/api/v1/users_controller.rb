@@ -20,6 +20,10 @@ module Api
         render json: {message: "Created User!", user: user, status: 201}
       end
 
+      def graph
+        render json: [User.three, User.five, User.seven_five, User.thousand, User.fifteen, User.two, User.two_two ]
+      end
+
       private
 
       def user_params
