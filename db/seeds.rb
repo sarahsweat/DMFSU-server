@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-alum = Team.create({name: "Alumni"})
-core = Team.create({name: "CORE"})
+alum = Team.create({name: "Alumni", photo: 'https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/13010667_10207942502352401_8554732486194948737_n.jpg?oh=dab559a76d7308aa45f52adb14fcb2b0&oe=5A337EB9'})
+core = Team.create({name: "CORE", photo: 'https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-0/p206x206/13062064_10154410587098132_7172171920890107340_n.jpg?oh=a83b3fce1f7a8a433089bed5ad2615a6&oe=5A377990'})
 
 a = User.create({first_name: "Sarah", last_name: 'Sweat', team_id: alum.id, photo: 'https://scontent-lga3-1.xx.fbcdn.net/v/t31.0-8/12719594_10154330526113132_6360152985690556783_o.jpg?oh=6fa8ed2f8e0eb0a49e4dd3f20c29b0f0&oe=59EFB2B6'})
 b = User.create({first_name: "Morgan", last_name: 'Maxwell', team_id: alum.id, photo: 'https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/12805727_10208560091542609_1869781719810354909_n.jpg?oh=7c509f0a7e262a51eb72aab8928d9285&oe=5A244B21'})

@@ -12,11 +12,14 @@
 
 ActiveRecord::Schema.define(version: 20170809191451) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "donations", force: :cascade do |t|
     t.integer "amount"
     t.string "message", default: "You rock! Keep dancing, FTK!!"
-    t.integer "donor_id"
-    t.integer "dancer_id"
+    t.bigint "donor_id"
+    t.bigint "dancer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["dancer_id"], name: "index_donations_on_dancer_id"
@@ -41,10 +44,11 @@ ActiveRecord::Schema.define(version: 20170809191451) do
     t.string "bio", default: "I hope you will consider supporting my participation in this event. All contributions will benefit my local Children's Miracle Network Hospital. Any contribution will help, and all donations are tax deductible."
     t.integer "goal", default: 1000
     t.boolean "team_captain", default: false
-    t.integer "team_id"
+    t.bigint "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["team_id"], name: "index_users_on_team_id"
   end
 
+  add_foreign_key "users", "teams"
 end
