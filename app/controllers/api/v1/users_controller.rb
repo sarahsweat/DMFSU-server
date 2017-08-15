@@ -11,8 +11,9 @@ module Api
 
       def update
         @user =  User.find(user_params[:id])
-        @user.save
-        render json: {message: "Updated User!", status: 201}
+        @user.update(user_params)
+        render json: {message: "Updated User!", user: @user, status: 201}
+
       end
 
       def create
