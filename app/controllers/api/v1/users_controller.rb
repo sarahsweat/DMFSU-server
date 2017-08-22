@@ -17,8 +17,12 @@ module Api
       end
 
       def create
-        user = User.create(user_params)
-        render json: {message: "Created User!", user: user, status: 201}
+        @user = User.new(user_params)
+        if @user.save
+          render json: {message: "Created User!", user: @user, status: 201}
+        else
+          render json: {errors: @user.errors.full_messages}
+        end
       end
 
       def graph

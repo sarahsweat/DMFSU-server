@@ -4,6 +4,15 @@ class User < ApplicationRecord
   has_many :donations_given, foreign_key: :donor_id, class_name: "Donation"
   has_many :donors, through: :donations_received, source: :donor
 
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :goal, presence: true, numericality: { greater_than: 0 }
+  validates :email, presence: true
+  validates :zip, presence: true
+
+
+
+
   def individual_total
     d_amounts = donations_received.map{|d| d.amount}
     d_amounts.inject(0){|sum,x| sum + x }
@@ -36,7 +45,5 @@ class User < ApplicationRecord
   def self.five
     User.joins(:donations_received).group(:dancer_id).sum("amount").values.select{|a| a>500}.length
   end
-
-
 
 end

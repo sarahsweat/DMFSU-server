@@ -16,8 +16,12 @@ module Api
       end
 
       def create
-        donation = Donation.create(donation_params)
-        render json: {message: "Created Donation!", donation: donation, status: 201}
+        @donation = Donation.new(donation_params)
+        if @donation.save
+          render json: {message: "Created Donation!", donation: @donation, status: 201}
+        else
+          render json: {errors: @donation.errors.full_messages}
+        end
       end
 
       private
